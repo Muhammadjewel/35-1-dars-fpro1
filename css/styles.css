@@ -75,3 +75,40 @@ img {
   background-color: tomato;
   content: "";
 }
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: 300px;
+  perspective: 1000px;
+}
+
+.card__front,
+.card__back {
+  padding: 15px;
+  backface-visibility: hidden;
+  transition: transform 0.5s ease;
+}
+
+.card__front {
+  background-color: gold;
+}
+
+.card__back {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: lightgreen;
+  transform: rotateY(180deg);
+}
+
+.card:hover .card__front {
+  transform: rotateY(-180deg);
+}
+
+.card:hover .card__back {
+  transform: rotateY(0);
+}
